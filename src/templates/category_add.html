@@ -1,0 +1,32 @@
+$var menu: menu_category
+
+<form class="form-horizontal" method="post">
+	<div class="control-group">
+		<label class="control-label" for="name">分类名称：</label>
+		<div class="controls">
+			<input type="text" id="name" name="name" placeholder="请输入分类名称"/>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="parent_id">上级分类：</label>
+		<div class="controls">
+			<select id="parent_id" name="parent_id">
+				<option value="">ab</option>
+				<option value="1" selected="selected">adfb</option>
+				<option value="">abbdef</option>
+			</select>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="description">分类描述：</label>
+		<div class="controls">
+			<textarea rows="3" id="description" name="description"></textarea>
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<button type="submit" class="btn btn-primary">新增</button>
+			<a href="#" class="btn btn-mini">返回</a>
+		</div>
+	</div>
+</form>

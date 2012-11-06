@@ -1,0 +1,38 @@
+$def with (categories)
+$var menu: menu_category
+<table class="table table-hover table-striped">
+	<caption><strong>栏目管理</strong></caption>
+	<thead>
+		<tr>
+			<td>
+				栏目名称
+			</td>
+			<td>
+				栏目描述
+			</td>
+			<td>
+				操作
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		$def printCat(category,indent):
+			<tr>
+				<td>
+					${(indent != 0 and '|' or '') + '__' * indent + category.name}
+				</td>
+				<td>
+					$category.description
+				</td>
+				<td>
+					<i class="icon-plus-sign"></i> Add
+				</td>
+			</tr>
+			$for child in category['childs']:
+				$:printCat(child,indent+1)
+				
+		$for category in categories:
+			$:printCat(category,0)
+			
+	</tbody>
+</table>
