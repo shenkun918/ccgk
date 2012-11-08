@@ -1,17 +1,17 @@
 $def with (categories)
 $var menu: menu_category
-<table class="table table-hover table-striped">
+<table class="table table-hover table-striped table-bordered">
 	<caption><strong>栏目管理</strong></caption>
 	<thead>
 		<tr>
 			<td>
-				栏目名称
+				<h6>栏目名称</h6>
 			</td>
 			<td>
-				栏目描述
+				<h6>栏目描述</h6>
 			</td>
 			<td>
-				操作
+				<h6>操作</h6>
 			</td>
 		</tr>
 	</thead>
@@ -19,13 +19,15 @@ $var menu: menu_category
 		$def printCat(category,indent):
 			<tr>
 				<td>
-					${(indent != 0 and '|' or '') + '__' * indent + category.name}
+					$:{'&nbsp;&nbsp;&nbsp;'  * indent + (indent != 0 and '|__' or '')  + category.name}
 				</td>
 				<td>
-					$category.description
+					<abbr title="$category.description">${category.description[:10] + '...' if category.description and len(category.description) > 10 else category.description}</abbr>
 				</td>
 				<td>
-					<i class="icon-plus-sign"></i> Add
+					<a href="$(category.id)/edit"><i class="icon-edit" title="修改栏目"></i></a>
+					<a href="$(category.id)/add"><i class="icon-plus-sign" title="添加子栏目"></i></a>
+					<a href="$(category.id)/del" onclick='javascript:if(confirm("删除此栏目，将导致该栏目及子栏目一并删除，其所属的内容列表也将删除，确定删除吗?")) return true;else return false'><i title="删除" class="icon-minus-sign"></i></a>
 				</td>
 			</tr>
 			$for child in category['childs']:
@@ -35,4 +37,9 @@ $var menu: menu_category
 			$:printCat(category,0)
 			
 	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="3" align="center"><a class='btn btn-inverse' href="0/add">添加顶级栏目</a></td>
+		</tr>
+	</tfoot>
 </table>

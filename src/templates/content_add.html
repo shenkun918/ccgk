@@ -1,0 +1,33 @@
+
+$var menu: menu_post
+
+<form class="form-horizontal" method="post">
+	<div class="control-group">
+		<label class="control-label" for="title">分类名称：</label>
+		<div class="controls">
+			<input type="text" id="title" name="title" placeholder="请输入标题"/>
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<textarea rows="3" id="detail" name="detail" style="width:700px;height:300px;"></textarea>
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<button type="submit" class="btn btn-primary">新增</button>
+			<a href="../list" class="btn btn-mini">返回</a>
+		</div>
+	</div>
+</form>
+<script charset="utf-8" src="/static/editor/kindeditor.js"></script>
+<script charset="utf-8" src="/static/editor/lang/zh_CN.js"></script>
+<script>
+        var editor;
+        KindEditor.ready(function(K) {
+                editor = K.create('#detail',{
+                    uploadJson : '/api/fileupload',
+                    allowFileManager : false
+           		 });
+        });
+</script>

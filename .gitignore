@@ -29,4 +29,4 @@ pip-log.txt
 #eclipse idea
 .project
 .pydevproject
-.settings
+.settings/

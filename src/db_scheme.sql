@@ -1,6 +1,7 @@
 create table t_category(
 	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	parent_id int NOT NULL,
+	path varchar(100) NOT NULL,
 	name varchar(100) NOT NULL,
 	description varchar(100)
 );
