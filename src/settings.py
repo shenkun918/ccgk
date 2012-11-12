@@ -10,3 +10,6 @@ DB_PWD = 'admin'
 
 #upload file path
 UPLOAD_FILE_PATH = 'E:/projects/ccgk/src/static/upload'
+
+#pagination
+SIZE_OF_PAGE = 2

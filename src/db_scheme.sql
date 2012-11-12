@@ -11,6 +11,7 @@ create table t_content(
 	id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	title varchar(100) NOT NULL,
 	detail text,
+	category_id int(11),
 	insert_date datetime NOT NULL,
 	update_date datetime NOT NULL
 );
